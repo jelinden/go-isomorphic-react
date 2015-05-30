@@ -1,6 +1,8 @@
 React.js server and client side rendering with Go
 =====
 
+![ScreenShot](screenshot.jpg)
+
 This experiment is based on [otto](https://github.com/robertkrimen/otto), a Javascript interpreter for Go.
 The goal for the experiment was to explore if reactjs server side rendering could be 
 done with Go and to use the same code in the browser. It seems to work fine if you can 
