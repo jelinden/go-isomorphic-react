@@ -16,6 +16,8 @@ and saves them in a global variable to be used later.
 By no means this is not a production ready set up, css and javascripts are not combined and minified.
 Also, if you want users to have sessions, caching rendered pages beforehand is problematic at least.
 
+You can test it here: [isomorphic.uutispuro.fi][http://isomorphic.uutispuro.fi/]
+
 To run:
 ```bash
 go build && ./go-isomorphic-react
