@@ -29,7 +29,7 @@ var Another = React.createFactory(React.createClass({displayName: 'Another',
                 )
             )
         );
-}
+    }
 }));
 
 var AnotherItem = React.createFactory(React.createClass({displayName: 'AnotherItem',
