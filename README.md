@@ -13,7 +13,7 @@ As a http server [echo][https://labstack.github.io/echo/] is used.
 In rss.go we are fetching a rss feed (scheduled in main.go). Scheduling also renders the results 
 and saves them in a global variable to be used later.
 
-By no means this is not a production ready set up, css and javascripts are not combined and minified.
+By no means this is a production ready set up, css and javascripts are not combined and minified.
 Also, if you want users to have sessions, caching rendered pages beforehand is problematic at least.
 
 You can test it here: [isomorphic.uutispuro.fi][http://isomorphic.uutispuro.fi/]
