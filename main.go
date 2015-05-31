@@ -28,12 +28,20 @@ func index(c *echo.Context) error {
 	return c.Render(http.StatusOK, "index", frontPageRendered)
 }
 
+func anotherpage(c *echo.Context) error {
+	return c.Render(http.StatusOK, "index", reactAnother())
+}
+
 func apiFrontPage(c *echo.Context) error {
 	return c.JSON(http.StatusOK, rssObject)
 }
 
+func apiAnotherPage(c *echo.Context) error {
+	return c.JSON(http.StatusOK, "")
+}
+
 func reactIndex() {
-	v := newRenderer([]string{"public/js/frontpage.js"}).
+	v := newRenderer([]string{"public/js/frontpage.js", "public/js/common.js"}).
 		runCmd(`
 			var data = ` + rss + `;
 			React.renderToString(News({'data' : data}));
@@ -44,6 +52,19 @@ func reactIndex() {
 		fmt.Println(err)
 	}
 	frontPageRendered = sValue
+}
+
+func reactAnother() string {
+	v := newRenderer([]string{"public/js/anotherpage.js", "public/js/common.js"}).
+		runCmd(`
+			React.renderToString(Another({'data' : {}}));
+	`)
+	//fmt.Printf("\n%v\n", v)
+	sValue, err := v.ToString()
+	if err != nil {
+		fmt.Println(err)
+	}
+	return sValue
 }
 
 func main() {
@@ -72,11 +93,12 @@ func main() {
 	t := &Template{
 		// Cached templates
 		templates: template.Must(template.ParseFiles("assets/html/index.html")),
-		//templates: template.Must(template.ParseFiles("assets/html/second.html")),
 	}
 	e.SetRenderer(t)
 	e.Get("/", index)
+	e.Get("/anotherpage", anotherpage)
 	e.Get("/api/frontpage", apiFrontPage)
+	e.Get("/api/anotherpage", apiAnotherPage)
 	go tick()
 	fmt.Println("serving at port 3000")
 	e.Run(":3000")
