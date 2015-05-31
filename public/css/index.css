@@ -53,3 +53,7 @@ a {
 .main {
     padding: 10px;
 }
+
+.pure-menu {
+    background-color: black;
+}
