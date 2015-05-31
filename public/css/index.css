@@ -49,3 +49,7 @@ a {
 .pubDate {
     display:inline;
 }
+
+.main {
+    padding: 10px;
+}

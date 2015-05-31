@@ -22,9 +22,11 @@ var News = React.createFactory(React.createClass({displayName: 'News',
                         )
                     )
                 ),
-                React.DOM.h1(null, "Go - React - Isomorphic"),
-                React.DOM.h2(null, this.props.data.Title),
-                NewsList(this.props)
+                React.DOM.div({className: "main"},
+                    React.DOM.h1(null, "Go - React - Isomorphic"),
+                    React.DOM.h2(null, this.props.data.Title),
+                    NewsList(this.props)
+                )
             )
         );
     }

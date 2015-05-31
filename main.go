@@ -105,7 +105,7 @@ func main() {
 }
 
 func tick() {
-	ticker := time.NewTicker(30 * time.Second)
+	ticker := time.NewTicker(70 * time.Second)
 	for {
 		fetchFeed()
 		reactIndex()
