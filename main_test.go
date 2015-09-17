@@ -6,6 +6,7 @@ import (
 
 func benchmarkRender(i int, b *testing.B) {
 	fetchFeed()
+	b.ResetTimer()
 	v := newRenderer([]string{"public/js/frontpage.js", "public/js/common.js"})
 	for n := 0; n < b.N; n++ {
 		v.runCmd(`
